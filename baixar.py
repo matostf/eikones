@@ -16,6 +16,8 @@ Uso:
   python3 baixar.py            # baixa tudo que ainda não existe
   python3 baixar.py --redo slug1 slug2   # re-resolve/rebaixa só esses slugs
   python3 baixar.py --dry      # só resolve e imprime, não baixa
+  python3 baixar.py --check-dedup        # avisa se baixar duplicata (pHash)
+  python3 baixar.py --strict-dedup       # implica --check-dedup; aborta na duplicata
 """
 
 import json
@@ -592,20 +594,74 @@ def download(url, dest_path):
             time.sleep(1.0 + tent)
     return 0
 
+
+# ---------------------------------------------------------------------------
+# Dedup: integrações opcionais com `~/Projetos/acervo-historia/app/reverse`.
+# Carregadas só se `--check-dedup` for passado, para não introduzir
+# dependência obrigatória de Pillow/imagehash.
+# ---------------------------------------------------------------------------
+def _load_dedup_helpers():
+    """Importa hasher do acervo-historia e devolve (hash_from_path, dedup_against)."""
+    import sys as _sys
+    from pathlib import Path as _Path
+
+    sibling = _Path(__file__).resolve().parent.parent / "acervo-historia"
+    if not sibling.exists():
+        raise RuntimeError(
+            "--check-dedup requer ../acervo-historia/ ao lado deste projeto"
+        )
+    _sys.path.insert(0, str(sibling))
+    from app.reverse.dedup import dedup_against  # noqa: E402
+    from app.reverse.hasher import hash_from_path  # noqa: E402
+
+    return hash_from_path, dedup_against
+
+
+def _load_existing_manifest():
+    p = os.path.join(DEST, "MANIFESTO.json")
+    if not os.path.exists(p):
+        return []
+    try:
+        with open(p, encoding="utf-8") as f:
+            data = json.load(f)
+        return [e for e in data if isinstance(e, dict) and e.get("phash")]
+    except Exception:
+        return []
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main():
     args = sys.argv[1:]
     dry = "--dry" in args
+    check_dedup = "--check-dedup" in args
+    strict_dedup = "--strict-dedup" in args  # implica check-dedup; aborta na duplicata
+    if strict_dedup:
+        check_dedup = True
     redo = []
     if "--redo" in args:
         idx = args.index("--redo")
         redo = args[idx + 1:]
 
+    # Inicialização do dedup (lazy): carrega helpers só se foi pedido,
+    # evita dependência obrigatória de Pillow/imagehash.
+    hash_from_path = None
+    dedup_against = None
+    existing_for_dedup = []
+    if check_dedup:
+        try:
+            hash_from_path, dedup_against = _load_dedup_helpers()
+            existing_for_dedup = _load_existing_manifest()
+            print(f"[dedup] manifesto base: {len(existing_for_dedup)} entradas com phash")
+        except Exception as e:
+            print(f"[dedup] ! desativado: {e}")
+            check_dedup = False
+            strict_dedup = False
+
     manifest = []
     falhas = []
     n_ok = 0
+    n_dups = 0
 
     for it in ITENS:
         if redo and it["slug"] not in redo:
@@ -645,7 +701,41 @@ def main():
             continue
 
         print(f"         {nome_arq}  ({size//1024} KB)")
-        manifest.append({
+
+        # Compute pHash/dHash da imagem baixada — sempre que hasher estiver disponível.
+        phash = dhash = None
+        if hash_from_path is not None:
+            try:
+                h = hash_from_path(dest_path)
+                phash, dhash = h.phash, h.dhash
+            except Exception as e:
+                print(f"      (dedup: erro hashing — {e})")
+
+        # Se check-dedup, comparar contra manifesto existente.
+        if check_dedup and phash and existing_for_dedup:
+            from app.reverse.hasher import ImageHashes as _IH  # noqa: E402
+
+            cand = _IH(phash=phash, dhash=dhash or phash, width=info["thumbwidth"], height=info["thumbheight"])
+            # Excluir auto-match (mesmo slug, caso de --redo).
+            others = [e for e in existing_for_dedup if e.get("slug") != it["slug"]]
+            verdict = dedup_against(cand, others)
+            if verdict["is_duplicate"]:
+                best = verdict["best_match"]
+                label = (best.get("slug") or best.get("titulo") or "?") if best else "?"
+                d = best.get("distance", "?") if best else "?"
+                n_dups += 1
+                print(f"      ⚠ DUPLICATA: similar a '{label}' (pHash dist={d})")
+                if strict_dedup:
+                    print(f"      → abortando entrada (modo --strict-dedup)")
+                    try:
+                        os.remove(dest_path)
+                    except OSError:
+                        pass
+                    falhas.append({**it, "motivo": "duplicata-strict", "duplicata_de": label})
+                    time.sleep(PAUSE)
+                    continue
+
+        entry = {
             "arquivo": nome_arq,
             "periodo_num": it["p"],
             "periodo": periodo,
@@ -662,7 +752,11 @@ def main():
             "arquivo_commons": fn,
             "pagina_commons": info["descriptionurl"],
             "resolvido_via": via,
-        })
+        }
+        if phash:
+            entry["phash"] = phash
+            entry["dhash"] = dhash
+        manifest.append(entry)
         n_ok += 1
         time.sleep(PAUSE)
 
@@ -693,7 +787,8 @@ def main():
                 w.writerow(m)
         print(f"\nManifesto: {len(manifest_final)} itens -> MANIFESTO.json / MANIFESTO.csv")
 
-    print(f"\n==== RESUMO ====  ok={n_ok}  falhas={len(falhas)}")
+    dups_msg = f"  duplicatas={n_dups}" if check_dedup else ""
+    print(f"\n==== RESUMO ====  ok={n_ok}  falhas={len(falhas)}{dups_msg}")
     if falhas:
         print("Falhas:")
         for fl in falhas:
