@@ -42,6 +42,7 @@ PERIODOS = {
     "04": "idade-media",
     "05": "idade-moderna",
     "06": "brasil",
+    "07": "contemporanea",
 }
 
 # ---------------------------------------------------------------------------
@@ -272,6 +273,172 @@ ITENS = [
     I("06", "dom-pedro-ii",          "Retrato de Dom Pedro II",                          "pt:Pedro II do Brasil",
       q="Pedro II Brazil portrait photograph"),
     I("06", "tiradentes-pedro-americo","Tiradentes Esquartejado — Pedro Américo",        "pt:Tiradentes Esquartejado"),
+
+    # ====================== 07 CONTEMPORÂNEA =========================
+    # ----- A. Restauração e Romantismo (1815-1848)
+    I("07", "congresso-de-viena",    "O Congresso de Viena — Isabey",                    "de:Wiener Kongress",
+      q="Isabey Kongress 1815"),
+    I("07", "caminhante-mar-de-nevoa","Caminhante sobre o Mar de Névoa — Caspar David Friedrich",
+      "en:Wanderer above the Sea of Fog"),
+    I("07", "balsa-da-medusa",       "A Balsa da Medusa — Théodore Géricault",           "en:The Raft of the Medusa"),
+    I("07", "massacre-de-quios",     "O Massacre de Quios — Delacroix",                  "en:The Massacre at Chios"),
+    I("07", "republica-universal-sorrieu","República Universal Democrática e Social — Sorrieu (1848)", None,
+      q="Sorrieu République universelle démocratique sociale 1848"),
+    I("07", "proclamacao-imperio-alemao","Proclamação do Império Alemão em Versalhes — Anton von Werner",
+      "en:Proclamation of the German Empire",
+      q="Anton von Werner Kaiserproklamation Versailles 1885"),
+
+    # ----- B. Realismo, 1ª Rev. Industrial (1850-1880)
+    I("07", "britadores-de-pedra",   "Os Britadores de Pedras — Gustave Courbet",        "en:The Stone Breakers"),
+    I("07", "enterro-em-ornans",     "Um Enterro em Ornans — Gustave Courbet",           "en:A Burial at Ornans"),
+    I("07", "respigadoras",          "As Respigadoras — Jean-François Millet",           "en:The Gleaners"),
+    I("07", "vagao-terceira-classe", "O Vagão de Terceira Classe — Honoré Daumier",      "en:The Third-Class Carriage"),
+    I("07", "forja-menzel",          "A Forja (Eisenwalzwerk) — Adolph von Menzel (1875)", None,
+      q="Menzel Eisenwalzwerk 1875"),
+    I("07", "iron-and-coal",         "Iron and Coal — William Bell Scott (Newcastle, 1861)",
+      "en:Iron and Coal",
+      q="William Bell Scott Iron Coal"),
+    I("07", "crystal-palace-1851",   "Crystal Palace — Grande Exposição de Londres (1851)","en:Great Exhibition",
+      q="Great Exhibition 1851 Crystal Palace Hyde Park Dickinson lithograph"),
+
+    # ----- C. Belle Époque, Impressionismo, Pós-Impressionismo (1870-1910)
+    I("07", "impressao-nascer-do-sol","Impressão, Nascer do Sol — Claude Monet",          "en:Impression, Sunrise"),
+    I("07", "bal-moulin-galette",    "Baile no Moulin de la Galette — Pierre-Auguste Renoir",
+      "en:Bal du moulin de la Galette"),
+    I("07", "moulin-rouge-cartaz",   "Cartaz do Moulin Rouge (La Goulue) — Toulouse-Lautrec (1891)",
+      None,
+      commons="Lautrec moulin rouge, la goulue (poster) 1891.jpg",
+      q="Lautrec Moulin Rouge La Goulue 1891 lithograph poster"),
+    I("07", "noite-estrelada",       "A Noite Estrelada — Vincent van Gogh",             "en:The Starry Night"),
+    I("07", "comedores-de-batatas",  "Os Comedores de Batatas — Vincent van Gogh",       "en:The Potato Eaters"),
+    I("07", "grandes-banhistas",     "Os Grandes Banhistas — Paul Cézanne",              "en:The Large Bathers (Cézanne)",
+      q="Cézanne Large Bathers Philadelphia"),
+    I("07", "torre-eiffel-1889",     "Torre Eiffel na inauguração (1889)",               "en:Eiffel Tower",
+      q="Eiffel Tower 1889 construction"),
+    I("07", "estatua-da-liberdade-1886","Estátua da Liberdade (Nova York, 1886)",        "en:Statue of Liberty",
+      q="Statue of Liberty 1886 unveiling"),
+
+    # ----- D. Imperialismo e 2ª Rev. Industrial (1870-1914)
+    I("07", "rhodes-colossus",       "O Colosso Rhodes — caricatura (Punch, 1892)",      None,
+      commons="Punch Rhodes Colossus.png",
+      q="Rhodes Colossus Punch 1892"),
+    I("07", "conferencia-de-berlim-1884","Conferência de Berlim (1884-85) — gravura",     "en:Berlin Conference",
+      q="Kongokonferenz 1884 Berlin Bismarck Africa engraving"),
+    I("07", "white-mans-burden-judge","O Fardo do Homem Branco — Victor Gillam (Judge, 1899)",
+      "en:The White Man's Burden",
+      q="White Man's Burden cartoon"),
+    I("07", "boxer-rebellion-aliados","Tropas das Oito Nações na Rebelião dos Boxers (1900)",
+      None,
+      q="Eight Nation Alliance soldiers Boxer Rebellion 1900 group photograph"),
+    I("07", "cecil-rhodes-retrato",  "Retrato de Cecil Rhodes",                          "en:Cecil Rhodes",
+      q="Cecil Rhodes portrait photograph"),
+    I("07", "henri-rousseau-o-sonho","O Sonho — Henri Rousseau (1910)",                  "en:The Dream (Rousseau painting)"),
+
+    # ----- E. 1ª Guerra Mundial (1914-1918)
+    I("07", "gassed-sargent",        "Gassed (Gaseado) — John Singer Sargent (1919)",    "en:Gassed (painting)"),
+    I("07", "we-are-making-a-new-world","Estamos Construindo um Mundo Novo — Paul Nash (1918)", None,
+      q="Paul Nash We Are Making a New World 1918"),
+    I("07", "paths-of-glory-nevinson","Caminhos da Glória — C.R.W. Nevinson (1917)",      None,
+      q="Nevinson Paths of Glory 1917 Imperial War Museum"),
+    I("07", "trincheiras-somme-foto","Soldados britânicos nas trincheiras do Somme (1916)", None,
+      q="Battle of the Somme trench July 1916 official photograph"),
+    I("07", "kitchener-wants-you",   "Lord Kitchener Quer Você — cartaz de Alfred Leete (1914)",
+      "en:Lord Kitchener Wants You",
+      q="Kitchener Wants You poster 1914"),
+
+    # ----- F. Revolução Russa (1917)
+    I("07", "lenin-discursando-1920","Lenin discursa em Sverdlov Square (1920)",         "en:Vladimir Lenin",
+      q="Lenin speech Sverdlov Square 1920"),
+    I("07", "bolchevique-kustodiev", "O Bolchevique — Boris Kustodiev (1920)",           None,
+      q="Kustodiev Bolshevik 1920 Tretyakov"),
+    I("07", "cartaz-moor-voluntario","Você se alistou como voluntário? — Dmitry Moor (1920)", None,
+      q="Moor Did You Volunteer poster 1920"),
+    I("07", "czar-nicolau-ii-familia","Família imperial Romanov (1913)",                  "en:Nicholas II of Russia",
+      q="Romanov family portrait 1913 Nicholas II Alexandra children"),
+
+    # ----- G. Vanguardas (1893-1930)
+    I("07", "o-grito",               "O Grito — Edvard Munch (1893)",                    "en:The Scream"),
+    I("07", "composicao-mondrian",   "Composição com Vermelho, Azul e Amarelo — Piet Mondrian",
+      "en:Composition with Red, Blue and Yellow"),
+    I("07", "composicao-viii-kandinsky","Composição VIII — Wassily Kandinsky (1923)",     None,
+      q="Kandinsky Composition VIII 1923 Guggenheim"),
+    I("07", "cidade-que-se-ergue-boccioni","A Cidade que se Ergue — Umberto Boccioni (1910)","en:The City Rises"),
+    I("07", "suprematismo-malevich", "Composição suprematista — Kazimir Malevich (1916)","en:Suprematism",
+      q="Malevich Suprematism Composition 1916"),
+
+    # ----- H. Entreguerras: crise e fascismos (1919-1939)
+    I("07", "multidao-wall-street-1929","Multidão em Wall Street após o Crash (1929)",    None,
+      q="Wall Street crash October 1929 crowd photograph"),
+    I("07", "migrant-mother",        "Migrant Mother — Dorothea Lange (1936)",           "en:Migrant Mother"),
+    I("07", "mussolini-marcha-sobre-roma","Marcha sobre Roma — Mussolini e camisas-negras (1922)",
+      "en:March on Rome",
+      q="Mussolini March on Rome 1922 blackshirts"),
+    I("07", "hitler-nuremberg-1934", "Comício do Partido Nazista em Nuremberg (1934)",   None,
+      q="Bundesarchiv Reichsparteitag Nuremberg 1934"),
+    I("07", "arbeit-macht-frei",     "Portão Arbeit macht frei — Auschwitz I",           None,
+      q="Auschwitz Arbeit macht frei gate entrance"),
+    I("07", "ruinas-guernica-bombardeio","Ruínas de Guernica após o bombardeio (1937)",   "en:Bombing of Guernica",
+      q="Bombing of Guernica 1937 ruins Bundesarchiv"),
+
+    # ----- I. 2ª Guerra Mundial (1939-1945)
+    I("07", "invasao-polonia-1939",  "Tanques alemães invadem a Polônia (1939)",         None,
+      q="Bundesarchiv Polen invasion September 1939 Panzer"),
+    I("07", "iwo-jima-rosenthal",    "Hasteamento da bandeira em Iwo Jima — Joe Rosenthal (1945)",
+      "en:Raising the Flag on Iwo Jima"),
+    I("07", "cogumelo-nagasaki",     "Cogumelo atômico sobre Nagasaki (1945)",           None,
+      q="Atomic cloud Nagasaki B-29 1945"),
+    I("07", "bandeira-sobre-reichstag","Bandeira sobre o Reichstag — Yevgeny Khaldei (1945)",
+      "en:Raising a Flag over the Reichstag"),
+    I("07", "libertacao-buchenwald", "Libertação de Buchenwald — fotografia do US Army (1945)", None,
+      q="Buchenwald liberation April 1945 US Army"),
+
+    # ----- J. Brasil — Abolição (1888)
+    I("07", "lei-aurea-fac-simile",  "Lei Áurea — fac-símile (1888)",                    "pt:Lei Áurea",
+      q="Lei Áurea manuscrito 1888"),
+    I("07", "princesa-isabel-retrato","Retrato da Princesa Isabel",                       "pt:Isabel do Brasil",
+      q="Princesa Isabel retrato 1888"),
+    I("07", "joaquim-nabuco-retrato","Retrato de Joaquim Nabuco",                        "pt:Joaquim Nabuco",
+      q="Joaquim Nabuco photograph abolicionista"),
+    I("07", "jose-do-patrocinio-retrato","Retrato de José do Patrocínio",                 "pt:José do Patrocínio",
+      q="José do Patrocínio photograph abolicionista"),
+
+    # ----- K. Brasil — Cangaço (1920-1938)
+    I("07", "lampiao-bando",         "Lampião e seu bando — foto de Benjamin Abrahão (1936)", "en:Lampião",
+      q="Virgulino Ferreira cangaceiro retrato"),
+    I("07", "lampiao-maria-bonita",  "Lampião e Maria Bonita — Benjamin Abrahão",        "pt:Maria Bonita",
+      q="Maria Bonita Lampião casal cangaço"),
+
+    # ----- L. Brasil — Era Vargas (1930-1954)
+    I("07", "vargas-revolucao-1930", "Getúlio Vargas chega ao Rio (Revolução de 1930)",  "pt:Revolução de 1930",
+      q="Vargas Revolução 1930 chegada Rio de Janeiro"),
+    I("07", "coluna-prestes-foto",   "Coluna Prestes — fotografia (1925-27)",            "pt:Coluna Prestes",
+      q="Coluna Prestes Luís Carlos Prestes 1925"),
+    I("07", "vargas-retrato-presidencial","Getúlio Vargas — retrato presidencial (Era Vargas)","pt:Getúlio Vargas",
+      q="Getúlio Vargas presidente Estado Novo"),
+    I("07", "revolucao-constitucionalista-1932","Revolução Constitucionalista de 1932 — São Paulo","pt:Revolução Constitucionalista de 1932",
+      q="Revolução Constitucionalista 1932 São Paulo soldados MMDC"),
+    I("07", "prestes-pacaembu-1945",  "Luís Carlos Prestes anistiado — Pacaembu (1945)", "pt:Luís Carlos Prestes",
+      q="Luís Carlos Prestes Pacaembu 1945 comício"),
+
+    # ----- M. II Reich — Alemanha imperial (1871-1918)
+    I("07", "kaiser-wilhelm-ii-retrato","Retrato do Kaiser Guilherme II",                 None,
+      q="Kaiser Wilhelm II 1902 cropped portrait photograph"),
+    I("07", "bismarck-retrato",      "Retrato de Otto von Bismarck",                     "en:Otto von Bismarck",
+      q="Otto von Bismarck portrait photograph 1880"),
+
+    # ----- N. Sufragistas (1900-1928)
+    I("07", "pankhurst-discurso",    "Emmeline Pankhurst em discurso (Londres)",         "en:Emmeline Pankhurst",
+      q="Emmeline Pankhurst speech arrest photograph"),
+    I("07", "cartaz-votes-for-women","Cartaz Votes for Women — movimento sufragista",    None,
+      q="Votes for Women suffragette poster Hilda Dallas"),
+    I("07", "marcha-sufragio-1913-washington","Marcha pelo sufrágio em Washington (1913)", None,
+      q="Suffrage parade Washington 1913 procession"),
+
+    # ----- O. Sionismo (1897-1948)
+    I("07", "theodor-herzl-retrato", "Retrato de Theodor Herzl",                         "en:Theodor Herzl",
+      q="Theodor Herzl portrait photograph"),
+    I("07", "primeiro-congresso-sionista-1897","1º Congresso Sionista em Basileia (1897)","en:First Zionist Congress",
+      q="First Zionist Congress Basel 1897 delegates"),
 ]
 
 # ---------------------------------------------------------------------------

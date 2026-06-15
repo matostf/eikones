@@ -45,6 +45,7 @@ PER = {
     "04": ("Idade Média",     (90, 74, 122)),
     "05": ("Idade Moderna",   (47, 110, 79)),
     "06": ("Brasil",          (29, 122, 74)),
+    "07": ("Contemporânea",   (122, 49, 70)),
 }
 
 man = json.load(open(os.path.join(DEST, "MANIFESTO.json"), encoding="utf-8"))
@@ -96,7 +97,7 @@ def new_page():
 img, d = new_page()
 # capa (topo da pág. 1)
 d.text((W // 2, MY + 6), "Acervo Didático de História", font=F_TITLE, fill=INK, anchor="ma")
-sub = f"{len(man)} obras em alta resolução · Wikimedia Commons · da Pré-História à Idade Moderna, com História do Brasil"
+sub = f"{len(man)} obras em alta resolução · Wikimedia Commons · da Pré-História à Idade Contemporânea, com História do Brasil"
 d.text((W // 2, MY + 58), sub, font=F_SUB, fill=(90, 90, 90), anchor="ma")
 d.line((MX, MY + 92, W - MX, MY + 92), fill=INK, width=2)
 y = MY + 112
