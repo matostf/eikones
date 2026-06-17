@@ -596,19 +596,19 @@ def download(url, dest_path):
 
 
 # ---------------------------------------------------------------------------
-# Dedup: integrações opcionais com `~/Projetos/acervo-historia/app/reverse`.
+# Dedup: integrações opcionais com `~/Projetos/garimpo-imagens/app/reverse`.
 # Carregadas só se `--check-dedup` for passado, para não introduzir
 # dependência obrigatória de Pillow/imagehash.
 # ---------------------------------------------------------------------------
 def _load_dedup_helpers():
-    """Importa hasher do acervo-historia e devolve (hash_from_path, dedup_against)."""
+    """Importa hasher do garimpo-imagens e devolve (hash_from_path, dedup_against)."""
     import sys as _sys
     from pathlib import Path as _Path
 
-    sibling = _Path(__file__).resolve().parent.parent / "acervo-historia"
+    sibling = _Path(__file__).resolve().parent.parent / "garimpo-imagens"
     if not sibling.exists():
         raise RuntimeError(
-            "--check-dedup requer ../acervo-historia/ ao lado deste projeto"
+            "--check-dedup requer ../garimpo-imagens/ ao lado deste projeto"
         )
     _sys.path.insert(0, str(sibling))
     from app.reverse.dedup import dedup_against  # noqa: E402

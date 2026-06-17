@@ -5,7 +5,7 @@ Idempotente: pula entradas que já têm `phash`. Roda depois de baixar imagens
 novas para garantir que o manifesto sempre tenha os hashes prontos para
 uso em dedup downstream.
 
-Reusa `app.reverse.hasher` do `~/Projetos/acervo-historia`.
+Reusa `app.reverse.hasher` do `~/Projetos/garimpo-imagens`.
 
 Uso:
     python3 hash_manifesto.py              # processa tudo que falta
@@ -19,11 +19,11 @@ import os
 import sys
 from pathlib import Path
 
-# Find sibling project `acervo-historia` to reuse its hasher.
+# Find sibling project `garimpo-imagens` to reuse its hasher.
 ROOT = Path(__file__).resolve().parent
-ACERVO_HISTORIA = ROOT.parent / "acervo-historia"
+ACERVO_HISTORIA = ROOT.parent / "garimpo-imagens"
 if not ACERVO_HISTORIA.exists():
-    print(f"ERRO: esperava encontrar ../acervo-historia/ ao lado deste projeto", file=sys.stderr)
+    print(f"ERRO: esperava encontrar ../garimpo-imagens/ ao lado deste projeto", file=sys.stderr)
     sys.exit(2)
 sys.path.insert(0, str(ACERVO_HISTORIA))
 
