@@ -2,18 +2,18 @@
 
 Coleção de obras de arte e imagens históricas em alta qualidade, baixadas do
 **Wikimedia Commons**, para uso em sala de aula no Ensino Médio — da Pré-História
-à Idade Moderna, com uma seção de História do Brasil.
+à Idade Contemporânea, com uma seção de História do Brasil.
 
 Todas as imagens são de **domínio público** ou de **licença livre** (arte anterior
 ao séc. XX, em sua maioria). A atribuição completa de cada peça (autor, data,
 licença e página de origem no Commons) está no **`MANIFESTO.csv`** / **`MANIFESTO.json`**.
 
-> 📄 **`FOLHA-DE-CONTATO.pdf`** — índice visual em A4 (8 páginas) com as 145 miniaturas
+> 📄 **`FOLHA-DE-CONTATO.pdf`** — índice visual em A4 (12 páginas) com as 215 miniaturas
 > numeradas e legendadas, agrupadas por período. Bom para escolher rápido o que usar.
 
 ## Como está organizado
 
-**145 imagens** no total. Pasta única (sem subpastas): o **prefixo do nome do
+**215 imagens** no total. Pasta única (sem subpastas): o **prefixo do nome do
 arquivo** indica o período, então a ordenação alfabética já agrupa por época.
 
 | Prefixo | Período | Nº | Conteúdo |
@@ -25,6 +25,7 @@ arquivo** indica o período, então a ordenação alfabética já agrupa por ép
 | `04-idade-media_…`     | Idade Média     | 24 | Bizâncio, mundo islâmico, românico, gótico, manuscritos |
 | `05-idade-moderna_…`   | Idade Moderna   | 32 | Renascimento, Reforma, Navegações, Absolutismo, Revoluções |
 | `06-brasil_…`          | Brasil          | 16 | pintura acadêmica do séc. XIX e fotografia de época |
+| `07-contemporanea_…`   | Idade Contemporânea | 70 | Romantismo, Impressionismo, vanguardas, fotografia histórica, Guerras Mundiais |
 
 Exemplo: `02-grecia_kouros-de-anavysos.jpg`.
 
