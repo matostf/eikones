@@ -22,7 +22,7 @@ its author, date, licence, credit line and source page.
 
 215 of 215 files have a licence, an author, a credit and a Commons source
 page in the manifest. The code and the metadata are MIT; each image keeps its
-own licence (see [`LICENSE`](LICENSE)).
+own licence (see [`LICENSE`](LICENSE) and [`LICENSE-IMAGES.md`](LICENSE-IMAGES.md)).
 
 ## Provenance schema
 
