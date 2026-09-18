@@ -1,10 +1,12 @@
-# Acervo Didático de História
+# Armarium
 
 **A curated, fully attributed collection of 215 public-domain and Creative
 Commons images for teaching history**, from prehistory to the 20th century
 with a section on Brazil. Every file was sourced from Wikimedia Commons,
 checked by eye against the intended work, and recorded in a manifest with
 its author, date, licence, credit line and source page.
+
+*Armarium* is the medieval library cupboard where a scriptorium kept its books. Formerly `acervo-didatico-historia`; the old GitHub URL redirects.
 
 *Portuguese documentation follows the English summary below.*
 
@@ -67,7 +69,7 @@ Example row (`MANIFESTO.json`):
 5. **Contact sheet.** `FOLHA-DE-CONTATO.pdf` (12 A4 pages, 215 numbered
    thumbnails with captions) is the visual index.
 
-Sourcing tool: [`venator`](https://github.com/matostf/venator) (open-access
+Sourcing tool: [`venator`](https://github.com/matostf/venator) (the hunter) and the local image bank `thesaurus` (open-access
 search across Wikimedia Commons, Smithsonian Open Access, Europeana, The
 Met and others, with a fail-closed licence classifier).
 
